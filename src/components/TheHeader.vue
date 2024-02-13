@@ -2,9 +2,11 @@
 // import  from ''
 
 export default {
-    name: "CompHeader.vue",
+    name: "theHeader",
     data(){
-        return{}
+        return{
+
+        }
     }
 }
 
@@ -15,10 +17,9 @@ export default {
 <template>
     <header class="d-flex justify-content-between p-3">
         <h1 class="text-danger">Boolflix</h1>
-
         <div>
             <input type="text">
-            <button>prova</button>
+            <button>cerca</button>
         </div>
     </header>
 </template>

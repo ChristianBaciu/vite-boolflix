@@ -1,14 +1,14 @@
 <script>
-import CompHeader from './components/CompHeader.vue'
-import CompFilm from './components/CompFilm.vue'
+import TheHeader from './components/TheHeader.vue'
+import listMovies from './components/movies/listMovies.vue'
 import axios from 'axios'
 
 import {store} from './store'
 
 export default {
     components:{
-        CompHeader,
-        CompFilm
+        TheHeader,
+        listMovies
     },
     data(){
         return{
@@ -33,9 +33,8 @@ export default {
 <!-- -------------------------------------------------------- -->
 
 <template>
-    <CompHeader/>
-    <CompFilm/>
-
+    <TheHeader/>
+    <listMovies/>
 </template>
 
 <!-- -------------------------------------------------------- -->
