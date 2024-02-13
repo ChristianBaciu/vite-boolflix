@@ -19,14 +19,14 @@ export default {
 
 <template>
     <header class="scroll text-light">
-             <div class="movie">  
-                <div>
-                    <h6>{{propsElement.title}}</h6>
-                    <h6>{{propsElement.original_title}}</h6>
-                    <p>Overview</p>
-                    <p>{{propsElement.vote_average}}</p>
-                </div>
+        <div class="movie">  
+            <div>
+                <h6>{{propsElement.title}}</h6>
+                <h6>{{propsElement.original_title}}</h6>
+                <p>Overview</p>
+                <p>vote</p>
             </div>
+        </div>
     </header>
 </template>
 
@@ -36,8 +36,8 @@ export default {
         flex-direction: row;
         border: 1px solid lime;
         .movie{
+            background-color: rgb(48, 48, 48);
             width: 200px;
-            background-color: black;
         }
     }
 

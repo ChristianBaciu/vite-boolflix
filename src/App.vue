@@ -23,6 +23,17 @@ export default {
             axios.get(store.MovieApiUrl).then(response =>{
                 store.ArrayMovies = response.data.results
                 console.log(store.ArrayMovies)
+
+
+                // cerca il titolo
+                // if(store.searchTitle){
+                //     store.ArrayMovies += `?title${store.searchTitle}`
+                // }
+
+
+
+
+
             })
         }
     },
@@ -33,7 +44,7 @@ export default {
 <!-- -------------------------------------------------------- -->
 
 <template>
-    <TheHeader/>
+    <TheHeader @chiCercaTrova="getMovies"/> <!-- figlio -->
     <listMovies/>
 </template>
 
