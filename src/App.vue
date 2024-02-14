@@ -1,13 +1,13 @@
 <script>
 import TheHeader from './components/TheHeader.vue'
-import listMovies from './components/movies/listMovies.vue'
+import ListMovies from './components/movies/ListMovies.vue'
 import axios from 'axios'
 import {store} from './store'
 
 export default {
     components:{
         TheHeader,
-        listMovies
+        ListMovies
     },
     data(){
         return{
@@ -19,6 +19,7 @@ export default {
         // this.getSeries()
     },
     methods:{
+
         getMovies(){
             if(store.searchTitle){
                 axios.get(`${store.endPointMovies}?api_key=${store.apiKey}&query=${store.searchTitle}`).then(response =>{
@@ -28,6 +29,7 @@ export default {
                 })
             }
         },
+
         getSeries(){
             if(store.searchTitle){
                 axios.get(`${store.endPointSeries}?api_key=${store.apiKey}&query=${store.searchTitle}`).then(response =>{
@@ -37,26 +39,11 @@ export default {
                 })
             }
         },
-        // getImage(){
-        //     if(store.searchTitle){
-        //         axios.get(`${store.imgApi}?api_key=${store.apiKey}&query=${store.searchTitle}`).then(response =>{
-
-        //         store.imgArray.length = 0; // Pulisci l'array in modo reattivo
-        //         store.imgArray.push(...response.data.results); // Aggiungi nuovi elementi
-        //         console.log(response.data.results);
-
-        //         })
-        //     }
-
-        // },
-
-
 
         search(){ 
             // ho messo search nell'emit del bottone, per attivare la funzione di getMovies e getSeries
             this.getMovies()
             this.getSeries()
-            // this.getImage()
         },
     }
 }
@@ -67,10 +54,11 @@ export default {
 <template>
     <!-- <TheHeader @emitGetMovies="getMovies"/> TheHeader è il figlio, App.vue è il padre -->
     <TheHeader @emitGetMovies="search"/>
-    <listMovies/>
+    <ListMovies/>
 </template>
 
 <!-- -------------------------------------------------------- -->
 
 <style lang="scss" scoped>
+
 </style>

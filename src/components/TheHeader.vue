@@ -19,7 +19,7 @@ export default {
 
         <div>
             <input type="text" placeholder="Cerca titolo" v-model="store.searchTitle">
-            <button @click="$emit('emitGetMovies')">cerca</button>
+            <button @click="$emit('emitGetMovies')">cerca</button> <!-- @keyup.enter.prevent="$emit('emitGetMovies')" -->
         </div>
     </header>
 </template>
