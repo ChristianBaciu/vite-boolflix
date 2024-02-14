@@ -2,7 +2,7 @@
 import {store} from '../../store'
 
 export default {
-    name: "movies",
+    name: "Movies",
     props: [
         'propsElement'
     ],
@@ -18,7 +18,7 @@ export default {
 <!-- -------------------------------------------------------- -->
 
 <template>
-    <header class="scroll text-light">
+    <!-- <header class="scroll text-light">
         <div class="movie">  
             <div>
                 <h6>{{propsElement.title}}</h6>
@@ -27,18 +27,18 @@ export default {
                 <p>vote</p>
             </div>
         </div>
-    </header>
+    </header> -->
 </template>
 
 <style lang="scss" scoped>
-    .scroll {
-        display: flex;
-        flex-direction: row;
-        border: 1px solid lime;
-        .movie{
-            background-color: rgb(48, 48, 48);
-            width: 200px;
-        }
-    }
+    // .scroll {
+    //     display: flex;
+    //     flex-direction: row;
+    //     border: 1px solid lime;
+    //     .movie{
+    //         background-color: rgb(48, 48, 48);
+    //         width: 200px;
+    //     }
+    // }
 
 </style>

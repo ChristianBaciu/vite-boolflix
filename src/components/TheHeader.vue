@@ -9,19 +9,17 @@ export default {
         }
     }
 }
-
 </script>
 
 <!-- -------------------------------------------------------- -->
 
 <template>
-    <header class="d-flex justify-content-between p-3">
+    <header class="d-flex justify-content-between align-items-center p-3 bg-dark">
         <h1 class="text-danger">Boolflix</h1>
 
         <div>
             <input type="text" placeholder="Cerca titolo" v-model="store.searchTitle">
-            
-            <button @click.prevent="$emit('chiCercaTrova')">cerca</button>
+            <button @click="$emit('emitGetMovies')">cerca</button>
         </div>
     </header>
 </template>

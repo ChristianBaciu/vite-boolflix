@@ -2,7 +2,6 @@
 import TheHeader from './components/TheHeader.vue'
 import listMovies from './components/movies/listMovies.vue'
 import axios from 'axios'
-
 import {store} from './store'
 
 export default {
@@ -16,27 +15,34 @@ export default {
         }
     },
     mounted(){
-        this.getMovies()
+        // this.getMovies(),
+        // this.getSeries()
     },
     methods:{
         getMovies(){
-            axios.get(store.MovieApiUrl).then(response =>{
-                store.ArrayMovies = response.data.results
-                console.log(store.ArrayMovies)
+            if(store.searchTitle){
+                axios.get(`${store.endPointMovies}?api_key=${store.apiKey}&query=${store.searchTitle}`).then(response =>{
 
+                    store.moviesArray = (response.data.results)
+                    console.log(response.data.results)
+                })
+            }
+        },
+        getSeries(){
+            if(store.searchTitle){
+                axios.get(`${store.endPointSeries}?api_key=${store.apiKey}&query=${store.searchTitle}`).then(response =>{
 
-                // cerca il titolo
-                // if(store.searchTitle){
-                //     store.ArrayMovies += `?title${store.searchTitle}`
-                // }
-
-
-
-
-
-            })
-        }
-    },
+                    store.seriesArray = (response.data.results)
+                    console.log(response.data.results)
+                })
+            }
+        },
+         search(){ 
+            // ho messo search nell'emit del bottone, per attivare la funzione di getMovies e getSeries
+            this.getMovies()
+            this.getSeries()
+        },
+    }
 }
 
 </script>
@@ -44,7 +50,8 @@ export default {
 <!-- -------------------------------------------------------- -->
 
 <template>
-    <TheHeader @chiCercaTrova="getMovies"/> <!-- figlio -->
+    <!-- <TheHeader @emitGetMovies="getMovies"/> TheHeader è il figlio, App.vue è il padre -->
+    <TheHeader @emitGetMovies="search"/>
     <listMovies/>
 </template>
 
