@@ -4,7 +4,7 @@ import {store} from '../../store'
 export default {
     name: "Movies",
     props: [
-        'propsElement'
+        'propsItem'
     ],
     data(){
         return{
@@ -12,33 +12,38 @@ export default {
         }
     }
 }
-
 </script>
 
 <!-- -------------------------------------------------------- -->
 
 <template>
-    <!-- <header class="scroll text-light">
-        <div class="movie">  
+    <div class="lista text-light">
+        <div class="cardMovie">  
             <div>
-                <h6>{{propsElement.title}}</h6>
-                <h6>{{propsElement.original_title}}</h6>
-                <p>Overview</p>
-                <p>vote</p>
+                <img :src="'https://image.tmdb.org/t/p/w342/' + propsItem.poster_path" alt="img">
+                <div class="testoInHover">
+                    <h6 class="bg-danger">{{ (propsItem.original_title) ? propsItem.original_title : propsItem.original_name }}</h6>
+                    <h6 class="bg-primary">{{ (propsItem.title) ? propsItem.title : propsItem.name }}</h6>
+                    <p class="bg-secondary">{{ (propsItem.overview) ? propsItem.overview : propsItem.overview }}</p>
+                    <p class="bg-dark">vote</p>
+                </div>
             </div>
         </div>
-    </header> -->
+    </div>
 </template>
 
-<style lang="scss" scoped>
-    // .scroll {
-    //     display: flex;
-    //     flex-direction: row;
-    //     border: 1px solid lime;
-    //     .movie{
-    //         background-color: rgb(48, 48, 48);
-    //         width: 200px;
-    //     }
-    // }
 
+<style lang="scss" scoped>
+    .lista {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid lime;
+        .cardMovie{
+            background-color: rgb(48, 48, 48);
+            width: 200px;
+            img{
+                width: 100%;
+            }
+        }
+    }
 </style>

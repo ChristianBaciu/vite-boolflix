@@ -20,19 +20,24 @@ export default {
 <!-- -------------------------------------------------------- -->
 
 <template>
-<!-- v-for="(element, index) in ArrayMovies" :key="index" :propsElement="element"  -->
-    <!-- <div class="ciao d-flex">
-        <movies v-for="(element, index) in store.ArrayMovies" :propsElement="element" :key="index"/>
-    </div> -->
- 
+    <h1 class="p-3">Films</h1>
+    <div class="d-flex scroll">
+        <movies v-for="(film, index) in store.moviesArray" :key="index" :propsItem="film"/>
+    </div>
+
+
+    <h1 class="p-3">Serie Tv</h1>
+    <div class="d-flex scroll">
+        <movies v-for="(serie, index) in store.seriesArray" :key="index" :propsItem="serie"/>
+    </div>
 </template>
 
 <!-- -------------------------------------------------------- -->
 
 <style lang="scss" scoped>
-    // .ciao{
-    //     overflow-x: auto;
-    //     scrollbar-color: red orange;
-    //     scrollbar-width: thin;
-    // }
+    .scroll{
+        overflow-x: auto;
+        scrollbar-color: green orange;
+        scrollbar-width: thin;
+    }
 </style>

@@ -37,14 +37,29 @@ export default {
                 })
             }
         },
-         search(){ 
+        // getImage(){
+        //     if(store.searchTitle){
+        //         axios.get(`${store.imgApi}?api_key=${store.apiKey}&query=${store.searchTitle}`).then(response =>{
+
+        //         store.imgArray.length = 0; // Pulisci l'array in modo reattivo
+        //         store.imgArray.push(...response.data.results); // Aggiungi nuovi elementi
+        //         console.log(response.data.results);
+
+        //         })
+        //     }
+
+        // },
+
+
+
+        search(){ 
             // ho messo search nell'emit del bottone, per attivare la funzione di getMovies e getSeries
             this.getMovies()
             this.getSeries()
+            // this.getImage()
         },
     }
 }
-
 </script>
 
 <!-- -------------------------------------------------------- -->
@@ -58,5 +73,4 @@ export default {
 <!-- -------------------------------------------------------- -->
 
 <style lang="scss" scoped>
-
 </style>
