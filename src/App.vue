@@ -4,6 +4,7 @@ import ListMovies from './components/movies/ListMovies.vue'
 import axios from 'axios'
 import {store} from './store'
 
+
 export default {
     components:{
         TheHeader,
@@ -19,6 +20,7 @@ export default {
         // this.getSeries()
     },
     methods:{
+
 
         getMovies(){
             if(store.searchTitle){

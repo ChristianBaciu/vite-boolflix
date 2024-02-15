@@ -10,7 +10,20 @@ export default {
         return{
             store
         }
-    }
+    },
+    methods:{
+        changeFlags(language){
+
+            switch(language){
+                case 'en':
+                    return 'us'
+
+                default:
+                    return 'language'   
+            }
+        }, 
+        
+    },
 }
 </script>
 
@@ -20,14 +33,32 @@ export default {
     <div class="lista">
         <div class="cardMovie">  
             <div>
-                <img :src="'https://image.tmdb.org/t/p/w342/' + propsItem.poster_path" alt="img">
+                <img class="imgCopertina" :src="'https://image.tmdb.org/t/p/w342/' + propsItem.poster_path" alt="img">
                 <div class="testoInHover p-1">
 
                     <h6 class="text-center p-2">{{ (propsItem.original_title) ? propsItem.original_title : propsItem.original_name }}</h6>
                     <p>{{ (propsItem.release_date) ? propsItem.release_date : propsItem.first_air_date }}</p>
-                    <!-- <p class="bg-primary">{{ (propsItem.title) ? propsItem.title : propsItem.name }}</p> -->
-                    <!-- <p class="bg-dark">vote</p> -->
                     <p>{{ (propsItem.overview) ? propsItem.overview : propsItem.overview }}</p>
+
+                    <p>{{ (propsItem.vote_average) ? (propsItem.vote_average * 10) : (propsItem.vote_average * 10) }}</p>
+                    
+                    
+                    <figure class="flag">
+                        <img :src="`https://flagsapi.com/${ changeFlags(propsItem.original_language).toUpperCase() }/flat/24.png`" alt="">
+                    </figure>
+
+                    <!-- <div>
+                        <span>
+                            stella piena 
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+
+                        <span>
+                            stella vuota
+                            <i class="fa-regular fa-star"></i>
+
+                        </span>
+                    </div> -->
 
                 </div>
             </div>
@@ -47,7 +78,7 @@ export default {
             width: 250px;
             position: relative;
 
-            img{
+            .imgCopertina{
                 width: 100%;
             }
             
@@ -55,6 +86,7 @@ export default {
                 position: absolute;
                 top: 0;
                 left: 0;
+                width: 100%;
                 height: 100%;
                 opacity: 0;
                 transform: translateY(-100%);
@@ -70,7 +102,6 @@ export default {
             p{
                 font-size: 10px;
             }
-
         }
     }
 </style>
