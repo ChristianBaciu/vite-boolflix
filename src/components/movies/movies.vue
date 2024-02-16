@@ -40,12 +40,25 @@ export default {
                     <p>{{ (propsItem.release_date) ? propsItem.release_date : propsItem.first_air_date }}</p>
                     <p>{{ (propsItem.overview) ? propsItem.overview : propsItem.overview }}</p>
 
-                    <p>{{ (propsItem.vote_average) ? (propsItem.vote_average * 10) : (propsItem.vote_average * 10) }}</p>
+                    <span class="bg-primary ms-1" v-for="(element, index) in 5">
+                    
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    
+                    </span>
+
+                    <p>{{ (propsItem.vote_average) ? (propsItem.vote_average / 2) : (propsItem.vote_average / 2) }}</p>
                     
                     
                     <figure class="flag">
                         <img :src="`https://flagsapi.com/${ changeFlags(propsItem.original_language).toUpperCase() }/flat/24.png`" alt="">
                     </figure>
+
+
+
+
+
+
 
                     <!-- <div>
                         <span>
