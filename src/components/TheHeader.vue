@@ -15,12 +15,25 @@ export default {
 
 <template>
     <header class="d-flex justify-content-between align-items-center p-3 bg-dark">
-        <h1 class="text-danger">Boolflix</h1>
 
-        <div>
-            <input type="text" placeholder="Cerca titolo" v-model="store.searchTitle">
-            <button @click="$emit('emitGetMovies')">cerca</button> <!-- @keyup.enter.prevent="$emit('emitGetMovies')" -->
+        <img src="../assets/img/Boolflix.png" width="140" alt="">
+
+        <div class="d-flex">
+
+
+
+            <div class="form-floating me-3">
+                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="..." v-model="store.searchTitle">
+                <label for="floatingInputGroup1">Cerca titolo</label>
+            </div>
+            
+            <button class="btn btn-light" @click="$emit('emitGetMovies')">cerca</button> <!-- @keyup.enter.prevent="$emit('emitGetMovies')" -->
+
+        
+        
+
         </div>
+
     </header>
 </template>
 

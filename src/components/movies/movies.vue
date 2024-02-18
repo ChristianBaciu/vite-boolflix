@@ -40,38 +40,15 @@ export default {
                     <p>{{ (propsItem.release_date) ? propsItem.release_date : propsItem.first_air_date }}</p>
                     <p>{{ (propsItem.overview) ? propsItem.overview : propsItem.overview }}</p>
 
-                    <span class="bg-primary ms-1" v-for="(element, index) in 5">
-                    
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    
-                    </span>
-
-                    <p>{{ (propsItem.vote_average) ? (propsItem.vote_average / 2) : (propsItem.vote_average / 2) }}</p>
-                    
+                    <span class="ms-1" v-for="(element, index) in 5" :key="index">
+                        <i class="fa-star"
+                            :class="(element <= Math.ceil ((propsItem.vote_average / 2)) ) ? 'fas' : 'far' ">
+                        </i>
+                    </span>  
                     
                     <figure class="flag">
                         <img :src="`https://flagsapi.com/${ changeFlags(propsItem.original_language).toUpperCase() }/flat/24.png`" alt="">
                     </figure>
-
-
-
-
-
-
-
-                    <!-- <div>
-                        <span>
-                            stella piena 
-                            <i class="fa-solid fa-star"></i>
-                        </span>
-
-                        <span>
-                            stella vuota
-                            <i class="fa-regular fa-star"></i>
-
-                        </span>
-                    </div> -->
 
                 </div>
             </div>
@@ -84,12 +61,13 @@ export default {
 <style lang="scss" scoped>
 
     .lista{
-        border: 3px solid rgb(0, 0, 0);
+        border: 3px groove rgb(0, 0, 0);
 
         .cardMovie{
             background-color: rgb(20, 20, 20);
             width: 250px;
             position: relative;
+            height: 100%;
 
             .imgCopertina{
                 width: 100%;
@@ -115,6 +93,15 @@ export default {
             p{
                 font-size: 10px;
             }
+
+            .far{
+                color: rgb(110, 110, 110);
+            }
+
+            .fas{
+                color: rgb(255, 208, 0);
+            }
+
         }
     }
 </style>
